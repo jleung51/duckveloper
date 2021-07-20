@@ -10,6 +10,7 @@ Serial | Name | Quantity | Description
 DEV-11021 | [Arduino Uno - R3](https://www.sparkfun.com/search/results?term=arduino+uno) | 1
 DEV-12660 | [SparkFun MP3 Player Shield](https://www.sparkfun.com/products/12660) | 1
 PRT-11417 | [Arduino Stackable Header Kit - R3](https://www.sparkfun.com/products/11417) | 1 | For the MP3 Shield
+COM-09151 | [Speaker (0.5W)](https://www.sparkfun.com/products/9151) | 1
 PRT-10512 | [Optional: 9V Battery Holder](https://www.sparkfun.com/products/10512) | 1
 
 Other common generic components you should have:
