@@ -27,7 +27,12 @@ Solder the stackable headers onto the MP3 Player shield.
 
 Mount the MP3 Player shield onto the Arduino Uno.
 
+
 ### Software Configuration
+
+[Download the Arduino IDE](https://www.arduino.cc/en/software).
+
+[Install the VS1053 library in the Arduino IDE](https://mpflaga.github.io/Arduino_Library-vs1053_for_SdFat/).
 
 Format the SD card to FAT16 or FAT32.
 
