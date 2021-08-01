@@ -34,6 +34,16 @@ vs1053 MP3player;
 // Total number of MP3 tracks on the SD card.
 const uint8_t NUMBER_OF_TRACKS = 3;
 
+
+
+// ------------------------------------------
+// ASSIGNED PINS
+// ------------------------------------------
+
+const uint8_t PIN_ANALOG_RNG = A0;  // Choose any unconnected analog pin
+
+
+
 // ------------------------------------------
 // ARDUINO FUNCTIONS
 // ------------------------------------------
@@ -79,25 +89,46 @@ void setup() {
   }
 #endif
 
+  seed_rng();
+
 }  // End of setup()
 
 // Main loop of the program
 void loop() {
 
-  // Check for button press
-  // If yes:
+  // Upon button press:
+  if (true) {
+
     // Turn on light
+
+
     // Select and play a random track
+    play_track(random(NUMBER_OF_TRACKS));
+
+    // Wait until track ends
+    do {
+      delay(100);
+    } while (MP3player.getState() == playback);
+
     // When done, turn off light
+
+  }
 
   delay(100);
 }
+
+
 
 // ------------------------------------------
 // CUSTOM FUNCTIONS
 // ------------------------------------------
 
-// Plays track on the SD card numbered as "track00[track_num].mp3".
+// This function seeds the random number generator with a partially random value.
+void seed_rng() {
+  randomSeed(analogRead(PIN_ANALOG_RNG));
+}
+
+// This function plays a track numbered as "track00[track_num].mp3".
 //
 // Throws an error if the track number is invalid (based on the value)
 // from NUMBER_OF_TRACKS).
