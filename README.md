@@ -23,6 +23,7 @@ Other common generic components you should have:
 * 1 button/switch (e.g. [Momentary Pushbutton Switch](https://www.sparkfun.com/products/9190))
 * 1 LED (e.g. [Super Bright LED](https://www.sparkfun.com/products/11118))
 * 1 breadboard
+* Resistors (1 x 330 Ω, 1 x 10k Ω)
 * Wires
 
 ## Setup
