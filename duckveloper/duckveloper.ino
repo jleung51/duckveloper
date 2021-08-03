@@ -23,24 +23,36 @@
 #endif
 
 
+
+// ------------------------------------------
+// HARDWARE SETTINGS
+// ------------------------------------------
+
+// Schematic:
+// 5v -> Button -> D5
+//              -> 10k Ohm resistor - > GND
+// D6 -> LED  -> 330k Ohm resistor -> GND
+
+// Pin connections
+
+const uint8_t PIN_LED = 6;
+const uint8_t PIN_BTN = 5;
+
+// Used for generating a random seed for the RNG
+// Choose any unconnected analog pin
+const uint8_t PIN_ANALOG_RNG = A0;
+
 // ------------------------------------------
 // GLOBAL VARIABLES
 // ------------------------------------------
 
+// Total number of MP3 tracks on the SD card.
+const uint8_t NUMBER_OF_TRACKS = 3;
+uint8_t last_played = 9999;
+
 // Instances of the libraries
 SdFat sd;
 vs1053 MP3player;
-
-// Total number of MP3 tracks on the SD card.
-const uint8_t NUMBER_OF_TRACKS = 3;
-
-
-
-// ------------------------------------------
-// ASSIGNED PINS
-// ------------------------------------------
-
-const uint8_t PIN_ANALOG_RNG = A0;  // Choose any unconnected analog pin
 
 
 
@@ -53,6 +65,8 @@ const uint8_t PIN_ANALOG_RNG = A0;  // Choose any unconnected analog pin
 void setup() {
 
   Serial.begin(115200);
+
+  Serial.println(F("To look up error codes, navigate to: https://mpflaga.github.io/Arduino_Library-vs1053_for_SdFat/index.html#Error_Codes"));
 
   Serial.print(F("F_CPU = "));
   Serial.println(F_CPU);
@@ -74,10 +88,6 @@ void setup() {
     Serial.print(F("Error code: "));
     Serial.print(result);
     Serial.println(F(" when trying to start MP3 player"));
-    if( result == 6 ) {
-      Serial.println(F("Warning: patch file not found, skipping."));  // Can be removed for space if needed
-      Serial.println(F("Use the \"d\" command to verify SdCard can be read"));  // Can be removed for space if needed
-    }
   }
 
 #if defined(__BIOFEEDBACK_MEGA__) // or other reasons, of your choosing.
@@ -91,27 +101,46 @@ void setup() {
 
   seed_rng();
 
+  // LED and button setup  
+  pinMode(PIN_LED, OUTPUT);
+  digitalWrite(PIN_LED, LOW);
+
+  pinMode(PIN_BTN, INPUT);
+
 }  // End of setup()
 
 // Main loop of the program
 void loop() {
 
   // Upon button press:
-  if (true) {
+  uint8_t buttonState = digitalRead(PIN_BTN);
+  if (buttonState == HIGH) {
+
+    Serial.println(F("Button status: Pressed"));
 
     // Turn on light
+    digitalWrite(PIN_LED, HIGH);
 
+    // Select and play a random track (different from the previous)
+    uint8_t track_num;
+    do {
+      track_num = random(1, NUMBER_OF_TRACKS+1);
+    } while (track_num == last_played);
+    last_played = track_num;
 
-    // Select and play a random track
-    play_track(random(NUMBER_OF_TRACKS));
+    play_track(track_num);
 
     // Wait until track ends
     do {
       delay(100);
     } while (MP3player.getState() == playback);
+    Serial.println(F("Track finished"));
 
     // When done, turn off light
+    digitalWrite(PIN_LED, LOW);
 
+  } else {
+    Serial.println(F("Button status: Not pressed"));
   }
 
   delay(100);
@@ -132,7 +161,7 @@ void seed_rng() {
 //
 // Throws an error if the track number is invalid (based on the value)
 // from NUMBER_OF_TRACKS).
-void play_track(int track_num) {
+void play_track(uint8_t track_num) {
 
 #if USE_MULTIPLE_CARDS
   sd.chvol();  // Assign desired sdcard's volume
@@ -148,8 +177,9 @@ void play_track(int track_num) {
     return;
   }
 
-  Serial.print(F("Playing track "));
-  Serial.println(track_num);
+  Serial.print(F("Playing track \"track00"));
+  Serial.print(track_num);
+  Serial.println(F(".mp3\""));
   uint8_t result = MP3player.playTrack(track_num);
 
   // Error codes reference:
@@ -162,7 +192,7 @@ void play_track(int track_num) {
     return;
   }
   
-  display_track_info();
+  // display_track_info();
 }
 
 
