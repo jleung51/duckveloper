@@ -1,4 +1,10 @@
-# Ducker Partner
+# Duckveloper 🐤
+
+Say goodbye to the low-tech days of rubber duck debugging! **Duckveloper 🐤** is the coding partner you never knew you needed.
+
+Simply press a button and the innovative, high-tech duck will generously provide you with words of "encouragement" to help you figure out what's really wrong with your code.
+
+Arduino project with an MP3 shield, speaker, and rubber duck. Inspired by the strategy of [rubber duck debugging](https://en.wikipedia.org/wiki/Rubber_duck_debugging).
 
 ## Components
 
