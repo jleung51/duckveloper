@@ -101,6 +101,8 @@ void setup() {
 
   seed_rng();
 
+  set_volume_max();
+
   // LED and button setup  
   pinMode(PIN_LED, OUTPUT);
   digitalWrite(PIN_LED, LOW);
@@ -155,6 +157,27 @@ void loop() {
 // This function seeds the random number generator with a partially random value.
 void seed_rng() {
   randomSeed(analogRead(PIN_ANALOG_RNG));
+}
+
+// This function maximizes the volume of the MP3 shield.
+void set_volume_max() {
+    set_volume(2);
+}
+
+// This function minimizes the volume of the MP3 shield.
+void set_volume_min() {
+    set_volume(254);
+}
+
+// This function sets the volume of the MP3 shield to a certain level.
+//
+// Note that dB is negative.
+void set_volume(uint8_t decibels) {
+  MP3player.setVolume(decibels, decibels);
+
+  Serial.print(F("Volume changed to -"));
+  Serial.print(decibels>>1, 1);
+  Serial.println(F("[dB]"));
 }
 
 // This function plays a track numbered as "track00[track_num].mp3".
