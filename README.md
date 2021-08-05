@@ -35,6 +35,18 @@ Solder the stackable headers onto the MP3 Player shield.
 
 Mount the MP3 Player shield onto the Arduino Uno.
 
+Connect the remaining components according to the following schematic:
+![Schematic](./schematic/schematic.jpg)
+
+To accurately connect the Audio Breakout Board (TPA2005D1), follow the [SparkFun Mono Audio Amplifier Quickstart Guide](https://www.sparkfun.com/tutorials/392).
+
+### SD Card Setup
+
+Format the SD card to FAT16 or FAT32.
+
+Place your intended voicelines onto the SD card, named in the format of `track001.mp3`, `track002.mp3`, etc.
+
+Install the SD card into the MP3 Player Shield.
 
 ### Software Configuration
 
@@ -42,11 +54,16 @@ Mount the MP3 Player shield onto the Arduino Uno.
 
 [Install the VS1053 library in the Arduino IDE](https://mpflaga.github.io/Arduino_Library-vs1053_for_SdFat/).
 
-Format the SD card to FAT16 or FAT32.
+Open, compile, and upload the `duckveloper/duckveloper.ino` program to the Arduino.
 
-Note: The audio files must be named as `track001.mp3`, `track002.mp3`, etc.
+### Operating the Project
 
+Press the button to trigger one of the random voicelines as well as the LED.
 
+To monitor the program's output, open the serial monitor and set the baud rate to 115200.
 
+## Reference
 
-https://learn.sparkfun.com/tutorials/mp3-player-shield-hookup-guide-v15/all
+For more information on working with the components in this project, see:
+* [SparkFun MP3 Player Shield Hookup Guide](https://learn.sparkfun.com/tutorials/mp3-player-shield-hookup-guide-v15/all)
+* [SparkFun Mono Audio Amplifier Quickstart Guide](https://www.sparkfun.com/tutorials/392)
