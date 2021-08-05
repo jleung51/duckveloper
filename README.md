@@ -16,7 +16,7 @@ Serial | Name | Quantity | Description
 DEV-11021 | [Arduino Uno - R3](https://www.sparkfun.com/products/11021) | 1
 DEV-12660 | [SparkFun MP3 Player Shield](https://www.sparkfun.com/products/12660) | 1 | Requires soldering on headers
 PRT-11417 | [Arduino Stackable Header Kit - R3](https://www.sparkfun.com/products/11417) | 1 | For the MP3 Shield
-BOB-11044 | [SparkFun Mono Audio Amp Breakout - TPA2005D1](https://www.sparkfun.com/products/11044) | 1
+BOB-11044 | [SparkFun Mono Audio Amp Breakout - TPA2005D1](https://www.sparkfun.com/products/11044) | 1 | Requires soldering connections
 COM-09151 | [Speaker (0.5W)](https://www.sparkfun.com/products/9151) | 1
 PRT-10512 | Optional: [9V Battery Holder](https://www.sparkfun.com/products/10512) | 1
 
