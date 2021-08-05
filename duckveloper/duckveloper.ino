@@ -6,7 +6,7 @@
  * component.
  * Each MP3 track must be named sequentially in the format track001.mp3,
  * track002.mp3, etc.
- * 
+ *
  */
 
 #include <SPI.h>
@@ -60,27 +60,29 @@ vs1053 MP3player;
 // ARDUINO FUNCTIONS
 // ------------------------------------------
 
-// Returned error codes are typically passed up from MP3player,
-// which in turn creates and initializes the SdCard objects
 void setup() {
 
   Serial.begin(115200);
 
+  // Returned error codes are typically passed up from MP3player,
+  // which in turn creates and initializes the SdCard objects
   Serial.println(F("To look up error codes, navigate to: https://mpflaga.github.io/Arduino_Library-vs1053_for_SdFat/index.html#Error_Codes"));
 
+  // Display hardware information
   Serial.print(F("F_CPU = "));
   Serial.println(F_CPU);
   Serial.print(F("Free RAM = ")); // Available in Version 1.0 F() bases the string to into Flash, to use less SRAM.
   Serial.print(FreeStack(), DEC);  // Provided by SdFat
   Serial.println(F(" Should be a base line of 1028, on ATmega328 when using INTx"));
 
-
-  // Initialize Serial port and MP3player objects with sd.begin()
-
   // Initialize the SdCard
-  if(!sd.begin(SD_SEL, SPI_FULL_SPEED)) sd.initErrorHalt();
+  if(!sd.begin(SD_SEL, SPI_FULL_SPEED)) {
+    sd.initErrorHalt();
+  }
   // Dsepending upon your SdCard environment, SPI_HAVE_SPEED may work better
-  if(!sd.chdir("/")) sd.errorHalt("sd.chdir");
+  if(!sd.chdir("/")) {
+    sd.errorHalt("sd.chdir");
+  }
 
   // Initialize the MP3 Player Shield
   uint8_t result = MP3player.begin();
@@ -103,13 +105,16 @@ void setup() {
 
   set_volume_max();
 
-  // LED and button setup  
+
+  // LED and button setup
+
   pinMode(PIN_LED, OUTPUT);
   digitalWrite(PIN_LED, LOW);
 
   pinMode(PIN_BTN, INPUT);
 
 }  // End of setup()
+
 
 // Main loop of the program
 void loop() {
@@ -214,7 +219,7 @@ void play_track(uint8_t track_num) {
     Serial.println(track_num);
     return;
   }
-  
+
   // display_track_info();
 }
 
