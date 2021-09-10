@@ -22,7 +22,7 @@ PRT-10512 | Optional: [9V Battery Holder](https://www.sparkfun.com/products/1051
 
 Other common generic components you should have:
 * 1 button/switch (e.g. [Momentary Pushbutton Switch](https://www.sparkfun.com/products/9190))
-* 1 LED (e.g. [Super Bright LED](https://www.sparkfun.com/products/11118))
+* 1 LED, bright enough to shine through the duck's plastic (e.g. [Super Bright LED](https://www.sparkfun.com/products/11118))
 * 1 breadboard
 * Resistors (1 x 330 Ω, 1 x 10k Ω)
 * Wires
@@ -39,6 +39,14 @@ Connect the remaining components according to the following schematic:
 ![Schematic](./schematic/schematic.jpg)
 
 To accurately connect the Audio Breakout Board (TPA2005D1), follow the [SparkFun Mono Audio Amplifier Quickstart Guide](https://www.sparkfun.com/tutorials/392).
+
+### Duck Configuration
+
+Use a hobby or utility knife to (carefully!) cut a small hole in the duck's rear end.
+
+Insert the LED into this hole so it will light up the duck when a voiceline is playing.
+
+ Apologize profusely throughout the procedure.
 
 ### SD Card Setup
 
