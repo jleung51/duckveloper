@@ -1,0 +1,5 @@
+D5 -> Button -> D10
+             -> 10k Ohm resistor - > GND
+A5 -> LED  -> 330 Ohm resistor -> GND
+5V -> Audio Amplifier PWR -> GND
+

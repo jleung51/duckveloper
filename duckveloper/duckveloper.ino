@@ -28,19 +28,26 @@
 // HARDWARE SETTINGS
 // ------------------------------------------
 
-// Schematic:
-// 5v -> Button -> D5
-//              -> 10k Ohm resistor - > GND
-// D6 -> LED  -> 330k Ohm resistor -> GND
+// According to the SparkFun MP3 Player Shield Hookup Guide:
+// https://learn.sparkfun.com/tutorials/mp3-player-shield-hookup-guide-v15/all
+// The available pins are:
+//   The hardware UART pins -- RX and TX -- on pins 0 and 1
+//   D5 and D10 (PWM pins)
+//   All analog pins (A0 through A5)
+
+// See the schematic/ directory for instructions on connecting the components.
 
 // Pin connections
 
-const uint8_t PIN_LED = 6;
-const uint8_t PIN_BTN = 5;
+const uint8_t PIN_LED = A5;
+const uint8_t PIN_BTN_PWR = 5;
+const uint8_t PIN_BTN_READ = 10;
 
 // Used for generating a random seed for the RNG
 // Choose any unconnected analog pin
 const uint8_t PIN_ANALOG_RNG = A0;
+
+
 
 // ------------------------------------------
 // GLOBAL VARIABLES
@@ -111,7 +118,10 @@ void setup() {
   pinMode(PIN_LED, OUTPUT);
   digitalWrite(PIN_LED, LOW);
 
-  pinMode(PIN_BTN, INPUT);
+  pinMode(PIN_BTN_PWR, OUTPUT);
+  digitalWrite(PIN_BTN_PWR, HIGH);
+
+  pinMode(PIN_BTN_READ, INPUT);
 
 }  // End of setup()
 
@@ -120,7 +130,7 @@ void setup() {
 void loop() {
 
   // Upon button press:
-  uint8_t buttonState = digitalRead(PIN_BTN);
+  uint8_t buttonState = digitalRead(PIN_BTN_READ);
   if (buttonState == HIGH) {
 
     Serial.println(F("Button status: Pressed"));
