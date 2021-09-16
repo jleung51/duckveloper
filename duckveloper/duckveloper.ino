@@ -64,6 +64,21 @@ vs1053 MP3player;
 
 
 // ------------------------------------------
+// FUNCTION PROTOTYPES
+// ------------------------------------------
+
+void seed_rng();
+
+void set_volume_max();
+void set_volume_min();
+void set_volume(uint8_t decibels);
+
+void play_track(uint8_t track_num);
+void display_track_info();
+
+
+
+// ------------------------------------------
 // ARDUINO FUNCTIONS
 // ------------------------------------------
 
