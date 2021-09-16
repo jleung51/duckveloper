@@ -97,6 +97,9 @@ void setup() {
     Serial.print(F("Error code: "));
     Serial.print(result);
     Serial.println(F(" when trying to start MP3 player"));
+    if( result == 6 ) {
+      Serial.println(F("Warning: patch file not found, skipping."));
+    }
   }
 
 #if defined(__BIOFEEDBACK_MEGA__) // or other reasons, of your choosing.
@@ -128,6 +131,14 @@ void setup() {
 
 // Main loop of the program
 void loop() {
+
+// Below is only needed if not interrupt driven. Safe to remove if not using.
+#if defined(USE_MP3_REFILL_MEANS) \
+    && ( (USE_MP3_REFILL_MEANS == USE_MP3_SimpleTimer) \
+    ||   (USE_MP3_REFILL_MEANS == USE_MP3_Polled)      )
+
+  MP3player.available();
+#endif
 
   // Upon button press:
   uint8_t buttonState = digitalRead(PIN_BTN_READ);
@@ -197,7 +208,7 @@ void set_volume(uint8_t decibels) {
 
 // This function plays a track numbered as "track00[track_num].mp3".
 //
-// Throws an error if the track number is invalid (based on the value)
+// Throws an error if the track number is invalid (based on the value
 // from NUMBER_OF_TRACKS).
 void play_track(uint8_t track_num) {
 
