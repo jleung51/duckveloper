@@ -176,7 +176,7 @@ void loop() {
     // Wait until track ends
     do {
       delay(100);
-    } while (MP3player.getState() == playback);
+    } while (MP3player.isPlaying());
     Serial.println(F("Track finished"));
 
     // When done, turn off light
