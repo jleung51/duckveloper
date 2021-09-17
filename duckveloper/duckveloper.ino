@@ -54,7 +54,7 @@ const uint8_t PIN_ANALOG_RNG = A0;
 // ------------------------------------------
 
 // Total number of MP3 tracks on the SD card.
-const uint8_t NUMBER_OF_TRACKS = 3;
+const uint8_t NUMBER_OF_TRACKS = 5;
 uint8_t last_played = 9999;
 
 // Instances of the libraries
