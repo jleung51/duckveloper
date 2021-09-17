@@ -32,7 +32,7 @@
 // https://learn.sparkfun.com/tutorials/mp3-player-shield-hookup-guide-v15/all
 // The available pins are:
 //   The hardware UART pins -- RX and TX -- on pins 0 and 1
-//   D5 and D10 (PWM pins)
+//   D5 and D10 (PWM pins)  -- NOTE: Using D10 causes my board to freeze while playing any track. Buyer beware.
 //   All analog pins (A0 through A5)
 
 // See the schematic/ directory for instructions on connecting the components.
@@ -41,7 +41,7 @@
 
 const uint8_t PIN_LED = A5;
 const uint8_t PIN_BTN_PWR = 5;
-const uint8_t PIN_BTN_READ = 10;
+const uint8_t PIN_BTN_READ = A4;
 
 // Used for generating a random seed for the RNG
 // Choose any unconnected analog pin
