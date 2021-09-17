@@ -4,6 +4,8 @@ Say goodbye to the low-tech days of rubber duck debugging! **Duckveloper 🐤** 
 
 Simply press a button and the innovative, high-tech duck will generously provide you with words of "encouragement" to help you figure out what's really wrong with your code.
 
+![Picture of project](./readme-img/project.jpg)
+
 Arduino project with an MP3 shield, speaker, and rubber duck. Inspired by the strategy of [rubber duck debugging](https://en.wikipedia.org/wiki/Rubber_duck_debugging).
 
 ## Components
@@ -26,6 +28,8 @@ Other common generic components you should have:
 * 1 breadboard
 * Resistors (1 x 330 Ω, 1 x 10k Ω)
 * Wires
+
+![Picture of components](./readme-img/components.jpg)
 
 ## Setup
 
