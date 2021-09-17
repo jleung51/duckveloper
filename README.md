@@ -14,7 +14,7 @@ This project uses the [Arduino VS1053 Library](https://github.com/mpflaga/Arduin
 
 Serial | Name | Quantity | Description
 --- | --- | --- | ---
-| | Rubber Duck | As many as you need to be happy in life
+| 🐤 | Rubber Duck | As many as you need to be happy in life
 DEV-11021 | [Arduino Uno - R3](https://www.sparkfun.com/products/11021) | 1
 DEV-12660 | [SparkFun MP3 Player Shield](https://www.sparkfun.com/products/12660) | 1 | Requires soldering on headers
 PRT-11417 | [Arduino Stackable Header Kit - R3](https://www.sparkfun.com/products/11417) | 1 | For the MP3 Shield
