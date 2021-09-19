@@ -48,7 +48,7 @@ To accurately connect the Audio Breakout Board (TPA2005D1), follow the [SparkFun
 
 Use a hobby or utility knife to (carefully!) cut a small hole in the duck's rear end.
 
-Insert the LED into this hole so it will light up the duck when a voiceline is playing.
+Insert the LED into the hole so it will light up the duck when a voiceline is playing.
 
  Apologize profusely throughout the procedure.
 
