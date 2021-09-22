@@ -66,7 +66,9 @@ Install the SD card into the MP3 Player Shield.
 
 [Install the VS1053 library in the Arduino IDE](https://mpflaga.github.io/Arduino_Library-vs1053_for_SdFat/).
 
-Open, compile, and upload the `duckveloper/duckveloper.ino` program to the Arduino.
+Open the `duckveloper/duckveloper.ino` program. Modify the value `NUMBER_OF_TRACKS` ([location in code here](https://github.com/jleung51/duckveloper/blob/0c18382fe2e1356997615a03e70b01add00e2793/duckveloper/duckveloper.ino#L57)) accordingly, if you have changed the number of voicelines on the SD card.
+
+Compile and upload the project to the Arduino.
 
 ### Operating the Project
 
