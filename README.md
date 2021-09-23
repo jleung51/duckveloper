@@ -1,5 +1,11 @@
 # Duckveloper 🐤
 
+<a href="https://www.youtube.com/watch?v=De-VEcLn2f4">
+  <img src="./readme-img/youtube-thumbnail.png" target="_blank" />
+</a>
+
+---
+
 Say goodbye to the low-tech days of rubber duck debugging! **Duckveloper 🐤** is the coding partner you never knew you needed.
 
 Simply press a button and the innovative, high-tech duck will generously provide you with words of "encouragement" to help you figure out what's really wrong with your code.
